@@ -24,7 +24,8 @@ public class ElementStack {
     public ElementStack next(){
         if(hasNext()){
             return next;
-        } else throw new RuntimeException("No element in next");
+        }
+        return null;
     }
 
     public int getValue(){

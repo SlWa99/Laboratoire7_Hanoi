@@ -45,7 +45,7 @@ public class Hanoi {
     }
     public void move(Stack from, Stack to){
         try{
-            if(from.top() > to.top()) throw new RuntimeException("Disque trop grand pour etre deplacer");
+            if(from.top() >= to.top()) throw new RuntimeException("Disque trop grand pour etre deplacer");
         } catch (RuntimeException e){
 
         }

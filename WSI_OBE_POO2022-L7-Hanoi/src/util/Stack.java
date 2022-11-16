@@ -23,8 +23,9 @@ public class Stack {
     }
 
     public int pop(){
+        ElementIterator it = new ElementIterator(head);
         int value = head.getValue();
-        head = head.next();
+        head = it.next();
         return value;
     }
 
@@ -35,12 +36,12 @@ public class Stack {
 
     public String toString(){
         String rt = "[ ";
-        ElementStack tmp = head;
+        ElementIterator it = new ElementIterator(head);
+
         if(head != null){
-            rt += "<" + tmp + "> ";
-            while(tmp.hasNext()){
-                tmp = tmp.next();
-                rt += "<" + tmp + "> ";
+            rt += "<" + head + "> ";
+            while(it.hasNext()){
+                rt += "<" + it.next().getValue() + "> ";
             }
         }
         return rt + "]\n";
@@ -49,19 +50,18 @@ public class Stack {
         int out[] = null;
         int pos=0;
         if(head != null){
-            ElementStack tmp = head;
+            ElementIterator it = new ElementIterator(head);
             pos++;
-            while(tmp.hasNext()){
-                tmp = tmp.next();
+            while(it.hasNext()){
+                it.next();
                 pos++;
             }
-            tmp = head;
+            it = new ElementIterator(head);
             out = new int[pos];
             pos = 0;
-            out[pos++] = tmp.getValue();
-            while(tmp.hasNext()){
-                tmp = tmp.next();
-                out[pos++] = tmp.getValue();
+            out[pos++] = head.getValue();
+            while(it.hasNext()){
+                out[pos++] = it.next().getValue();
             }
         }
         return out;

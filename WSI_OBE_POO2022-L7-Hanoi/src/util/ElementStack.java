@@ -17,17 +17,10 @@ public class ElementStack {
     private ElementStack next;
     // endregion
     // region methods
-    public boolean hasNext(){
-        return next != null;
-    }
 
-    public ElementStack next(){
-        if(hasNext()){
-            return next;
-        }
-        return null;
+    public ElementStack getNext(){
+        return next;
     }
-
     public int getValue(){
         return value;
     }

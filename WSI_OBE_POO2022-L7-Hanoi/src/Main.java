@@ -1,8 +1,11 @@
 import hanoi.*;
+import hanoi.gui.JHanoi;
+
 public class Main {
     public static void main(String[] args) {
-        Hanoi h = new Hanoi(5);
-        h.solve();
-        System.out.println(h.finished());
+
+        HanoiDisplayer hanoiDisplayer = new HanoiDisplayer();
+        Hanoi h = new Hanoi(10,hanoiDisplayer);
+        new JHanoi();
     }
 }

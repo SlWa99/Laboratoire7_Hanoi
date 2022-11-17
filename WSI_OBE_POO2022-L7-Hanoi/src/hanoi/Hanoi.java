@@ -7,6 +7,19 @@ public class Hanoi {
         h.solve();
     }
     // region ctor
+
+    public Hanoi(int nbRing,HanoiDisplayer hanoiDisplayer){
+        this.nbRing = nbRing;
+        this.hanoiDisplayer = hanoiDisplayer;
+
+        for(int i = 0; i < nbStack; ++i){
+            stacks[i] = new Stack();
+        }
+
+        for(int val = nbRing; val > 0; val--){
+            stacks[0].push(val);
+        }
+    }
     public Hanoi(int nbRing){
         this.nbRing = nbRing;
 
@@ -22,25 +35,29 @@ public class Hanoi {
     // region param
     final int nbStack = 3;
     Stack stacks[] = new Stack[nbStack];
+    private HanoiDisplayer hanoiDisplayer;
     private int nbRing;
     private int turn;
     // endregion
     // region methods
     public void solve(){
-        System.out.println(this);
+        if(hanoiDisplayer != null){hanoiDisplayer.display(this);}
+        else{System.out.println(this);}
         solve(nbRing,stacks[0],stacks[2],stacks[1]);
     }
     private void solve(int n, Stack from, Stack to, Stack other){
         if(n == 1){
             move(from,to);
             turn++;
-            System.out.println(this);
+            if(hanoiDisplayer != null){hanoiDisplayer.display(this);}
+            else{System.out.println(this);}
             return;
         }
         solve(n-1,from,other,to);
         move(from,to);
         turn++;
-        System.out.println(this);
+        if(hanoiDisplayer != null){hanoiDisplayer.display(this);}
+        else{System.out.println(this);}
         solve(n-1,other,to,from);
     }
     public void move(Stack from, Stack to){

@@ -47,7 +47,7 @@ public class Stack {
         return rt + "]\n";
     }
     public int[] toArray(){
-        int out[] = null;
+        int out[] = new int[0];
         int pos=0;
         if(head != null){
             ElementIterator it = new ElementIterator(head);

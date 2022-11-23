@@ -517,7 +517,7 @@
 											"top": 174,
 											"width": 300.955078125,
 											"height": 13,
-											"text": "-status(): int[][]",
+											"text": "+status(): int[][]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -534,7 +534,7 @@
 											"top": 189,
 											"width": 300.955078125,
 											"height": 13,
-											"text": "-finished(): bool",
+											"text": "+finished(): bool",
 											"horizontalAlignment": 0
 										},
 										{
@@ -551,7 +551,7 @@
 											"top": 204,
 											"width": 300.955078125,
 											"height": 13,
-											"text": "-turn(): int",
+											"text": "+turn(): int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3175,7 +3175,6 @@
 										"$ref": "AAAAAAGEhglfQQ07JPM="
 									},
 									"name": "status",
-									"visibility": "private",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -3196,7 +3195,6 @@
 										"$ref": "AAAAAAGEhglfQQ07JPM="
 									},
 									"name": "finished",
-									"visibility": "private",
 									"parameters": [
 										{
 											"_type": "UMLParameter",
@@ -3216,7 +3214,6 @@
 										"$ref": "AAAAAAGEhglfQQ07JPM="
 									},
 									"name": "turn",
-									"visibility": "private",
 									"parameters": [
 										{
 											"_type": "UMLParameter",

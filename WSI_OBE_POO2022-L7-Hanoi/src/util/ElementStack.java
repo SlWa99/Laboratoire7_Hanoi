@@ -2,7 +2,7 @@ package util;
 
 public class ElementStack<T> {
     // region ctor
-    public ElementStack(T value,ElementStack next){
+    public ElementStack(T value,ElementStack<T> next){
         this.next = next;
         this.value = value;
     }
@@ -15,12 +15,12 @@ public class ElementStack<T> {
 
     // region param
     private T value;
-    private ElementStack next;
+    private ElementStack<T> next;
     // endregion
 
     // region methods
 
-    public ElementStack getNext(){
+    public ElementStack<T> getNext(){
         return next;
     }
 

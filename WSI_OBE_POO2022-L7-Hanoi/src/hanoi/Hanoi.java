@@ -72,18 +72,24 @@ public class Hanoi {
         int val = from.pop();
         to.push(val);
     }
-    private int[] status(){
-       int[] out = new int[3];
+    public int[][] status(){
+       int[][] out = new int[3][];
        for(int i = 0; i < nbStack; ++i){
-           out[i] = (Integer[]) stacks[i].toArray();
+           Object[] tour = this.stacks[i].toArray();
+           int[] t = new int[tour.length];
+
+           for(int j = 0; j < tour.length; ++j) {
+               t[j] = (Integer) tour[j];
+           }
+           out[i] = t;
        }
        return out;
     }
-    private boolean finished(){
+    public boolean finished(){
         int[][] test = status();
         return test[nbStack-1].length == nbRing;
     }
-    private int turn(){
+    public int turn(){
         return turn;
     }
     public String toString(){

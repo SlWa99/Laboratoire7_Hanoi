@@ -22,15 +22,9 @@ public class Stack<T> {
         }
     }
 
-<<<<<<< HEAD
     public T pop(){
         ElementIterator it = new ElementIterator(head);
         T value = head.getValue();
-=======
-    public int pop(){
-        ElementIterator it = new ElementIterator(head);
-        int value = head.getValue();
->>>>>>> a958fe035a25099b95c33fe8f4289070e50a7485
         head = it.next();
         return value;
     }
@@ -52,14 +46,9 @@ public class Stack<T> {
         }
         return rt + "]\n";
     }
-<<<<<<< HEAD
 
     public Object[] toArray(){
         Object out[] = new Object[0];
-=======
-    public int[] toArray(){
-        int out[] = new int[0];
->>>>>>> a958fe035a25099b95c33fe8f4289070e50a7485
         int pos=0;
         if(head != null){
             ElementIterator it = new ElementIterator(head);
@@ -69,11 +58,7 @@ public class Stack<T> {
                 pos++;
             }
             it = new ElementIterator(head);
-<<<<<<< HEAD
             out = new Object[pos];
-=======
-            out = new int[pos];
->>>>>>> a958fe035a25099b95c33fe8f4289070e50a7485
             pos = 0;
             out[pos++] = head.getValue();
             while(it.hasNext()){

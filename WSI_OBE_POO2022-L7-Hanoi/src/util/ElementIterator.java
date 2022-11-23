@@ -1,7 +1,6 @@
 package util;
 
 public class ElementIterator {
-<<<<<<< HEAD
     // region ctor
     public ElementIterator(ElementStack it){
         this.it = it;
@@ -13,13 +12,6 @@ public class ElementIterator {
     // endregion
 
     // region Méthode
-=======
-    public ElementIterator(ElementStack it){
-        this.it = it;
-    }
-    private ElementStack it;
-
->>>>>>> a958fe035a25099b95c33fe8f4289070e50a7485
     public ElementStack next(){
         if(hasNext()){
             it = it.getNext();
@@ -31,10 +23,5 @@ public class ElementIterator {
     public boolean hasNext(){
         return it.getNext() != null;
     }
-<<<<<<< HEAD
     // endregion
-=======
-
-
->>>>>>> a958fe035a25099b95c33fe8f4289070e50a7485
 }

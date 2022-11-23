@@ -1,39 +1,34 @@
 package util;
 
-public class ElementStack {
+public class ElementStack<T> {
     // region ctor
-    public ElementStack(int value,ElementStack next){
+    public ElementStack(T value,ElementStack next){
         this.next = next;
         this.value = value;
     }
 
-    public ElementStack(int value){
+    public ElementStack(T value){
         next = null;
         this.value = value;
     }
     // endregion
+
     // region param
-    private int value;
+    private T value;
     private ElementStack next;
     // endregion
+
     // region methods
-    public boolean hasNext(){
-        return next != null;
-    }
 
-    public ElementStack next(){
-        if(hasNext()){
-            return next;
-        }
-        return null;
+    public ElementStack getNext(){
+        return next;
     }
-
-    public int getValue(){
+    public T getValue(){
         return value;
     }
 
     public String toString(){
-        return ""+value;
+        return (String) value;
     }
     // endregion
 }

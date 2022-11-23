@@ -7,11 +7,24 @@ public class Hanoi {
         h.solve();
     }
     // region ctor
+    public Hanoi(int nbRing, HanoiDisplayer hanoiDisplayer){
+        this.nbRing = nbRing;
+        this.hanoiDisplayer = hanoiDisplayer;
+
+        for(int i = 0; i < nbStack; ++i){
+            stacks[i] = new Stack<>();
+        }
+
+        for(int val = nbRing; val > 0; val--){
+            stacks[0].push(val);
+        }
+    }
+
     public Hanoi(int nbRing){
         this.nbRing = nbRing;
 
         for(int i = 0; i < nbStack; ++i){
-            stacks[i] = new Stack();
+            stacks[i] = new Stack<>();
         }
 
         for(int val = nbRing; val > 0; val--){
@@ -19,51 +32,58 @@ public class Hanoi {
         }
     }
     // endregion
+
     // region param
-    final int nbStack = 3;
-    Stack stacks[] = new Stack[nbStack];
+    private final int nbStack = 3;
+    private Stack<Integer>[] stacks = new Stack[nbStack];
+    private HanoiDisplayer hanoiDisplayer;
     private int nbRing;
     private int turn;
     // endregion
+
     // region methods
     public void solve(){
-        System.out.println(this);
+        if(hanoiDisplayer != null){hanoiDisplayer.display(this);}
+        else{System.out.println(this);}
         solve(nbRing,stacks[0],stacks[2],stacks[1]);
     }
     private void solve(int n, Stack from, Stack to, Stack other){
         if(n == 1){
             move(from,to);
             turn++;
-            System.out.println(this);
+            if(hanoiDisplayer != null){hanoiDisplayer.display(this);}
+            else{System.out.println(this);}
             return;
         }
         solve(n-1,from,other,to);
         move(from,to);
         turn++;
-        System.out.println(this);
+        if(hanoiDisplayer != null){hanoiDisplayer.display(this);}
+        else{System.out.println(this);}
         solve(n-1,other,to,from);
     }
-    public void move(Stack from, Stack to){
+    private void move(Stack<Integer> from, Stack<Integer> to){
         try{
-            if(from.top() > to.top()) throw new RuntimeException("Disque trop grand pour etre deplacer");
-        } catch (RuntimeException e){
-
+            if(from.top() >= to.top())
+                throw new RuntimeException("Disque trop grand pour etre deplacer");
+        }
+        catch (RuntimeException e){
         }
         int val = from.pop();
         to.push(val);
     }
-    public int[][] status(){
-       int[][] out = new int[3][];
+    private int[] status(){
+       int[] out = new int[3];
        for(int i = 0; i < nbStack; ++i){
-           out[i] = stacks[i].toArray();
+           out[i] = (Integer[]) stacks[i].toArray();
        }
        return out;
     }
-    public boolean finished(){
+    private boolean finished(){
         int[][] test = status();
         return test[nbStack-1].length == nbRing;
     }
-    public int turn(){
+    private int turn(){
         return turn;
     }
     public String toString(){

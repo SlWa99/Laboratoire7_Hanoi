@@ -1,67 +1,68 @@
 package util;
 
-public class Stack {
+public class Stack<T> {
     // region ctor
-    public Stack(int... values){
-        for(int val : values){
+    public Stack(T... values){
+        for(T val : values){
             push(val);
         }
     }
     // endregion
 
     // region param
-    private ElementStack head;
+    private ElementStack<T> head;
     // endregion
 
     // region method
-    public void push(int value){
+    public void push(T value){
         if(head == null){
-            head = new ElementStack(value);
+            head = new ElementStack<>(value);
         } else {
-            head = new ElementStack(value,head);
+            head = new ElementStack<>(value,head);
         }
     }
 
-    public int pop(){
-        int value = head.getValue();
-        head = head.next();
+    public T pop(){
+        ElementIterator it = new ElementIterator(head);
+        T value = head.getValue();
+        head = it.next();
         return value;
     }
 
-    public int top(){
+    public T top(){
         if(head == null) throw new RuntimeException("Stack vide");
         return head.getValue();
     }
 
     public String toString(){
         String rt = "[ ";
-        ElementStack tmp = head;
+        ElementIterator it = new ElementIterator(head);
+
         if(head != null){
-            rt += "<" + tmp + "> ";
-            while(tmp.hasNext()){
-                tmp = tmp.next();
-                rt += "<" + tmp + "> ";
+            rt += "<" + head + "> ";
+            while(it.hasNext()){
+                rt += "<" + it.next().getValue() + "> ";
             }
         }
         return rt + "]\n";
     }
-    public int[] toArray(){
-        int out[] = null;
+
+    public Object[] toArray(){
+        Object out[] = new Object[0];
         int pos=0;
         if(head != null){
-            ElementStack tmp = head;
+            ElementIterator it = new ElementIterator(head);
             pos++;
-            while(tmp.hasNext()){
-                tmp = tmp.next();
+            while(it.hasNext()){
+                it.next();
                 pos++;
             }
-            tmp = head;
-            out = new int[pos];
+            it = new ElementIterator(head);
+            out = new Object[pos];
             pos = 0;
-            out[pos++] = tmp.getValue();
-            while(tmp.hasNext()){
-                tmp = tmp.next();
-                out[pos++] = tmp.getValue();
+            out[pos++] = head.getValue();
+            while(it.hasNext()){
+                out[pos++] = it.next().getValue();
             }
         }
         return out;

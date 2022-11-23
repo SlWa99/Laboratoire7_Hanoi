@@ -23,7 +23,11 @@ public class ElementStack<T> {
     public ElementStack getNext(){
         return next;
     }
+<<<<<<< HEAD
     public T getValue(){
+=======
+    public int getValue(){
+>>>>>>> a958fe035a25099b95c33fe8f4289070e50a7485
         return value;
     }
 

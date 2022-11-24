@@ -1,26 +1,51 @@
+/**
+ *  -----------------------------------------------------------------------------------
+ * @Fichier      : ElementIterator.java
+ * @Labo         : Laboratoire 7 : Tours de Hanoï
+ * @Auteurs      : Slimani Walid & Baume Oscar
+ * @Date         : 09.11.2022
+ *
+ * @Description  : Ce fichier définit la classe ElementIterator. Cette classe permet de
+ *                 parcourir la stack.
+ * @Remarque     : / Aucune remarque
+ * @Modification : / Aucune modification
+ *  -----------------------------------------------------------------------------------
+ **/
+
 package util;
 
 public class ElementIterator {
     // region ctor
-    public ElementIterator(ElementStack it){
+    public ElementIterator(ElementStack it) {
         this.it = it;
     }
     // endregion
 
     // region Paramètre
-    private ElementStack it;
+    private ElementStack it;    // Element de la stack pointé par l'itérateur
     // endregion
 
     // region Méthode
-    public ElementStack next(){
-        if(hasNext()){
+
+    /**
+     * Nom         : next
+     * Description : Retourne l'élement suivant qui est dans la Stack
+     * @return     : L'élément suivant en question
+     **/
+    public ElementStack next() {
+        if (hasNext()) {
             it = it.getNext();
             return it;
         }
         return null;
     }
 
-    public boolean hasNext(){
+    /**
+     * Nom         : hasNext
+     * Description : Indique si l'élément courrant est suivi d'un autre élément
+     * @return     : Vrai si l'élément courrant est suivi par un autre élément
+     **/
+    public boolean hasNext() {
         return it.getNext() != null;
     }
     // endregion

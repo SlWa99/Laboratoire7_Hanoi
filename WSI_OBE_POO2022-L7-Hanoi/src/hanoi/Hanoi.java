@@ -54,12 +54,6 @@ public class Hanoi {
     // region methodes
 
     /**
-     * Résoud le problème en affichant à chaque fois qu'un disque est déplacé
-     * @throws RuntimeException Si rods ne contient pas 3 aiguilles
-     */
-
-
-    /**
      * Nom           : solve
      * Description   : Permet de résoudre le casse-tête en affichant l'état des tours
      *                 à chaque fois qu'un disque est déplacé

@@ -16,6 +16,15 @@ package util;
 
 public class ElementIterator {
     // region ctor
+
+    /**
+     * Nom         : ElementIterator
+     * Description : Permet de construire un itérateur permettant d'itérer sur une Stack contenant des
+     *               StackElement. A la construction, l'itérateur pointe sur le StackElement qui est
+     *               passé en paramètre du constructeur
+     * @param it  : ElementStack sur lequel pointe l'itérateur
+     * @return    : L'objet ElementIterator construit par le constructeur
+     **/
     public ElementIterator(ElementStack it) {
         this.it = it;
     }

@@ -16,6 +16,13 @@ package util;
 
 public class Stack<T> {
     // region ctor
+
+    /**
+     * Nom          : Stack
+     * Description  : Permet de construire une Stack avec un nombre d'élément variable
+     * @param values : Valeur(s) de(s) élément(s) à ajouter dans la pile
+     * @return      : L'objet Stack construit par le constructeur
+     **/
     public Stack(T... values) {
         for (T val : values) {
             push(val);

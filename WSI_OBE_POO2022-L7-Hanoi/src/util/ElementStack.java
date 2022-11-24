@@ -16,11 +16,25 @@ package util;
 
 public class ElementStack<T> {
     // region ctor
+
+    /**
+     * Nom          : ElementStack
+     * Description  : Permet de construire un element d'une stack
+     * @param value : Valeur de l'élément de type <T>
+     * @param next  : Element suivant d'un élément de la pile
+     * @return      : L'objet ElementStack construit par le constructeur
+     **/
     public ElementStack(T value, ElementStack<T> next) {
+        this(value);
         this.next = next;
-        this.value = value;
     }
 
+    /**
+     * Nom          : ElementStack
+     * Description  : Permet de construire un element d'une stack qui ne possède pas d'élément suivant
+     * @param value : Valeur de l'élément de type <T>
+     * @return      : L'objet ElementStack construit par le constructeur
+     **/
     public ElementStack(T value) {
         next = null;
         this.value = value;

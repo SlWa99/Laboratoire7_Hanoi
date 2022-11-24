@@ -17,20 +17,38 @@ import util.Stack;
 
 public class Hanoi {
     // region ctor
+
+    /**
+     * Nom                   : Hanoi
+     * Description           : Permet de construire le casse-tête des tours de Hanoï en spécifiant le nombre
+     *                         de disque et en spécifiant le HanoiDisplayer qui va afficher l'état des
+     *                         tours de Hanoï
+     * @param nbRing         : Nombre de disque à déplacer
+     * @param hanoiDisplayer : Objet de type HanoiDisplayer permettant d'afficher l'état du casse-tête
+     * @return               : L'objet Hanoi construit par le constructeur
+     **/
     public Hanoi(int nbRing, HanoiDisplayer hanoiDisplayer) {
-        this.nbRing = nbRing;
+        this(nbRing);
+
+        if (hanoiDisplayer == null) {
+            throw new RuntimeException("Attention, le Hanoï displayer est null");
+        }
+
         this.hanoiDisplayer = hanoiDisplayer;
-
-        for (int i = 0; i < nbStack; ++i) {
-            stacks[i] = new Stack<>();
-        }
-
-        for (int val = nbRing; val > 0; val--) {
-            stacks[0].push(val);
-        }
     }
 
+    /**
+     * Nom           : Hanoi
+     * Description   : Permet de construire le casse-tête des tours de Hanoï en spécifiant le nombre
+     *                 de disque
+     * @param nbRing : Nombre de disque à déplacer
+     * @return       : L'objet Hanoi construit par le constructeur
+     **/
     public Hanoi(int nbRing) {
+        if (nbRing <= 0) {
+            throw new RuntimeException("Le nombre de disque n'est pas valable");
+        }
+
         this.nbRing = nbRing;
 
         for (int i = 0; i < nbStack; ++i) {

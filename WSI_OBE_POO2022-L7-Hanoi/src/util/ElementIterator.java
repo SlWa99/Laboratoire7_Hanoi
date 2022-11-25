@@ -57,5 +57,16 @@ public class ElementIterator {
     public boolean hasNext() {
         return it.getNext() != null;
     }
+
+    /**
+     * Nom         : toString
+     * Description : Indique la valeur de l'élément sur lequel pointe l'itérateur
+     * Remarque    : /!\ cette fonction a été implémenté UNIQUEMENT pour pouvoir tester le bon fonctionnement
+     *      *        de la classe Stack (voir le test "Test des itérateurs" dans la classe "TestStack") /!\
+     * @return     : String contenant la valeur de l'ElementStack sur lequel pointe l'itérateur
+     **/
+    public String toString() {
+        return (String) it.getValue();
+    }
     // endregion
 }

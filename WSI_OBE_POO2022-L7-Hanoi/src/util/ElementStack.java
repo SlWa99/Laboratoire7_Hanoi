@@ -14,7 +14,7 @@
 
 package util;
 
-public class ElementStack<T> {
+class ElementStack<T> {
     // region ctor
 
     /**

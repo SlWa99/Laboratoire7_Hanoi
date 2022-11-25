@@ -56,6 +56,9 @@ public class Stack<T> {
      * @return       : L'élément de type <T> qui était au sommet de la pile
      **/
     public T pop() {
+        if (head == null)
+            throw new RuntimeException("La stack est vide");
+
         ElementIterator it = new ElementIterator(head);
         T value = head.getValue();
         head = it.next();
@@ -68,7 +71,9 @@ public class Stack<T> {
      * @return       : La valeur de type <T> de l'élément qui est au sommet de la pile
      **/
     public T top() {
-        if (head == null) throw new RuntimeException("Stack vide");
+        if (head == null) {
+            throw new RuntimeException("Stack vide");
+        }
         return head.getValue();
     }
 
@@ -82,7 +87,7 @@ public class Stack<T> {
         ElementIterator it = new ElementIterator(head);
 
         if (head != null) {
-            rt += "<" + head + "> ";
+            rt += "<" + head.getValue() + "> ";
             while (it.hasNext()) {
                 rt += "<" + it.next().getValue() + "> ";
             }
@@ -114,6 +119,17 @@ public class Stack<T> {
             }
         }
         return out;
+    }
+
+    /**
+     * Nom         : getHead
+     * Description : retourne le sommet de la pile
+     * @return     : Un ElementStack qui est le sommet de la pile
+     * Remarque    : /!\ cette fonction a été implémenté UNIQUEMENT pour pouvoir tester le bon fonctionnement
+     *               de la classe Stack (voir le test "Test des itérateurs" dans la classe "TestStack") /!\
+     **/
+    public ElementStack<T> getHead() {
+        return head;
     }
     // endregion
 }

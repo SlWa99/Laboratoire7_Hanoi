@@ -36,7 +36,7 @@ public class Main {
             }
 
             if (nbrDisk <= 0) {
-                throw new RuntimeException("Le nombre de disques doit être suppérieur à 0");
+                throw new RuntimeException("Le nombre de disques doit être supérieur à 0");
             }
 
             Hanoi h = new Hanoi(nbrDisk);

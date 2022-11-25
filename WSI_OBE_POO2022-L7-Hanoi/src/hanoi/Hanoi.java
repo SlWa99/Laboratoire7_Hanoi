@@ -31,7 +31,7 @@ public class Hanoi {
         this(nbRing);
 
         if (hanoiDisplayer == null) {
-            throw new RuntimeException("Attention, le Hanoï displayer est null");
+            throw new RuntimeException("Le Hanoï displayer est null");
         }
 
         this.hanoiDisplayer = hanoiDisplayer;
@@ -127,8 +127,9 @@ public class Hanoi {
      **/
     private void move(Stack<Integer> from, Stack<Integer> to) {
         try {
-            if (from.top() >= to.top())
+            if (to.getHead() != null && from.top() >= to.top())
                 throw new RuntimeException("Disque trop grand pour etre deplacer");
+
         } catch (RuntimeException e) {
         }
         int val = from.pop();
@@ -142,7 +143,7 @@ public class Hanoi {
      * @return       : Un tableau de Stack (un tableau de 3 aiguilles)
      **/
     public int[][] status() {
-        int[][] out = new int[3][];
+        int[][] out = new int[nbStack][];
 
         for (int i = 0; i < nbStack; ++i) {
             Object[] tour = stacks[i].toArray();

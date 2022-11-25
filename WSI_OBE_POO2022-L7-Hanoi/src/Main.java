@@ -6,9 +6,9 @@
  * @Date         : 09.11.2022
  *
  * @Description  : Le but de ce programme est de résoudre le problème des tours de Hanoï.
- *                 De plus, afin de visualiser la résolution du casse tête une interface
+ *                 De plus, afin de visualiser la résolution du casse-tête une interface
  *                 graphique est présente.
- * @Remarque     : Le nombre de minimum de coup nécessaire pour résoudre le casse tête est
+ * @Remarque     : Le nombre de minimum de coup nécessaire pour résoudre le casse-tête est
  *                 (2^nombre de disque) - 1 (Exemple : pour 3 disques il faut (2^3) - 1 = 7).
  * @Modification : / Aucune modification
  *  -----------------------------------------------------------------------------------

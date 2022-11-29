@@ -99,7 +99,6 @@ public class Hanoi {
     private void solve(int n, Stack from, Stack to, Stack other) {
         if (n == 1) {
             move(from, to);
-            turn++;
             if (hanoiDisplayer != null) {
                 hanoiDisplayer.display(this);
             } else {
@@ -109,7 +108,6 @@ public class Hanoi {
         }
         solve(n - 1, from, other, to);
         move(from, to);
-        turn++;
         if (hanoiDisplayer != null) {
             hanoiDisplayer.display(this);
         } else {
@@ -134,6 +132,7 @@ public class Hanoi {
         }
         int val = from.pop();
         to.push(val);
+        turn++;
     }
 
 

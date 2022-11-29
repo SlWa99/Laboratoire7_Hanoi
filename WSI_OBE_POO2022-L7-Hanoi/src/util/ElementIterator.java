@@ -47,6 +47,7 @@ public class ElementIterator {
             return it;
         }
         return null;
+
     }
 
     /**
@@ -55,6 +56,7 @@ public class ElementIterator {
      * @return     : Vrai si l'élément courrant est suivi par un autre élément
      **/
     public boolean hasNext() {
+        if(it == null) throw new RuntimeException("L'iterateur est null");
         return it.getNext() != null;
     }
 

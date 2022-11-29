@@ -22,7 +22,26 @@ public class TestStack {
         System.out.println("Construction de la stack :");
         Stack<String> stack = new Stack<>();
         System.out.println(stack);
+        //test pop sur stack vide
+        try{
+            stack.pop();
+        } catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        // test top sur stack vide
+        try{
+            stack.top();
+        } catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+        // test création iterateur sur stack vide
+        try{
+            ElementIterator it = new ElementIterator(stack.getHead());
+        } catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
 
+        stack = new Stack<String>();
         System.out.println("On ajoute dans la stack les valeurs suivantes : 7, 14, 95, 33 et 444 :");
         stack.push("7");
         stack.push("14");
@@ -73,7 +92,6 @@ public class TestStack {
         while(it.hasNext()) {
             System.out.println("next -> " + it.next());
         }
-
         // endregion
     }
 }

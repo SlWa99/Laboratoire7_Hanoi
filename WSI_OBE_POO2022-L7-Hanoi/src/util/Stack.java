@@ -57,7 +57,7 @@ public class Stack<T> {
      **/
     public T pop() {
         if (head == null)
-            throw new RuntimeException("La stack est vide");
+            throw new RuntimeException("pop() : La stack est vide");
 
         ElementIterator it = new ElementIterator(head);
         T value = head.getValue();
@@ -72,7 +72,7 @@ public class Stack<T> {
      **/
     public T top() {
         if (head == null) {
-            throw new RuntimeException("Stack vide");
+            throw new RuntimeException("top() : La stack est vide");
         }
         return head.getValue();
     }
@@ -91,6 +91,7 @@ public class Stack<T> {
             while (it.hasNext()) {
                 rt += "<" + it.next().getValue() + "> ";
             }
+
         }
         return rt + "]\n";
     }
@@ -129,6 +130,7 @@ public class Stack<T> {
      *               de la classe Stack (voir le test "Test des itérateurs" dans la classe "TestStack") /!\
      **/
     public ElementStack<T> getHead() {
+        if(head == null) throw new RuntimeException("getHead() : la stack est vide");
         return head;
     }
     // endregion
